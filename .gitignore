@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/chapter02/GlazerCalc/.vs/GlazerCalc
+/chapter02/GlazerCalc/GlazerCalc/obj
+/chapter02/GlazerCalc/GlazerCalc/bin/Debug/netcoreapp3.1
