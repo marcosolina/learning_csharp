@@ -20,6 +20,16 @@ namespace BankProgram
             Bank[1].State = AccountState.Frozen;
             Bank[1].Balance = 20000;
             PrintAccount(Bank[1]);
+
+            ClassAccount classAccount = new ClassAccount();
+            classAccount.PayInFunds(50);
+
+            Console.WriteLine(classAccount.WithdrawFunds(10));
+            Console.WriteLine(ClassAccount.AccountAllowed(1234, 5));
+
+            ClassAccount classAccount2 = new ClassAccount("Test");
+            Console.WriteLine(classAccount.GetName());
+            Console.WriteLine(classAccount2.GetName());
         }
 
         public static void PrintAccount(Account account)

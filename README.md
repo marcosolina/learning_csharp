@@ -52,3 +52,8 @@ So... I am reading [this](http://www.csharpcourse.com/) book, and I will put in 
 - Multi dimension arrays are defined in this way:
 
         int[,,] twoDimension = new int[3, 3, 3];
+
+### Chapter 04 Notes
+
+- Struct are passed as values (copy) not like reference with the Objects
+- Constructor chaining is a little bit different compared to how you do it in Java
