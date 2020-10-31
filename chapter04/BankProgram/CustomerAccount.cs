@@ -4,15 +4,18 @@ using System.Text;
 
 namespace BankProgram
 {
-    class ClassAccount
+    class CustomerAccount : IAccount
     {
         private decimal balance;
         private string name;
 
-        public ClassAccount() : this("")
+        /// <summary>
+        /// The default constructor will call my custom constructor
+        /// </summary>
+        public CustomerAccount() : this("")
         { }
 
-        public ClassAccount(string name)
+        public CustomerAccount(string name)
         {
             this.name = name;
             this.balance = 0;
@@ -26,7 +29,7 @@ namespace BankProgram
             }
             balance -= amount;
             return true;
-        } 
+        }
 
         public void PayInFunds(decimal amount)
         {
@@ -40,7 +43,7 @@ namespace BankProgram
 
         public static bool AccountAllowed(decimal income, int age)
         {
-            return income >= 10000 && age > 17;   
+            return income >= 10000 && age > 17;
         }
 
         public string GetName()

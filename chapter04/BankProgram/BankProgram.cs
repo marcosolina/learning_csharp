@@ -7,6 +7,9 @@ namespace BankProgram
         static void Main(string[] args)
         {
             const int MAX_CUSTOMER = 100;
+            /*
+             * Account it's a struct
+             */
             Account[] Bank = new Account[MAX_CUSTOMER];
 
             Bank[0].Name = "Marco";
@@ -21,14 +24,14 @@ namespace BankProgram
             Bank[1].Balance = 20000;
             PrintAccount(Bank[1]);
 
-            ClassAccount classAccount = new ClassAccount();
-            classAccount.PayInFunds(50);
+            IAccount account = new CustomerAccount();
+            account.PayInFunds(50);
 
-            Console.WriteLine(classAccount.WithdrawFunds(10));
-            Console.WriteLine(ClassAccount.AccountAllowed(1234, 5));
+            Console.WriteLine(account.WithdrawFunds(10));
+            Console.WriteLine(CustomerAccount.AccountAllowed(1234, 5));
 
-            ClassAccount classAccount2 = new ClassAccount("Test");
-            Console.WriteLine(classAccount.GetName());
+            CustomerAccount classAccount2 = new CustomerAccount("Test");
+            Console.WriteLine((account as CustomerAccount).GetName());
             Console.WriteLine(classAccount2.GetName());
         }
 
