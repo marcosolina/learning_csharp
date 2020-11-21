@@ -7,6 +7,9 @@ namespace BankProgram
         static void Main(string[] args)
         {
             const int MAX_CUSTOMER = 100;
+            /*
+             * Account it's a struct
+             */
             Account[] Bank = new Account[MAX_CUSTOMER];
 
             Bank[0].Name = "Marco";
@@ -21,15 +24,26 @@ namespace BankProgram
             Bank[1].Balance = 20000;
             PrintAccount(Bank[1]);
 
-            ClassAccount classAccount = new ClassAccount();
-            classAccount.PayInFunds(50);
+            IAccount customerAccount = new CustomerAccount();
+            customerAccount.PayInFunds(50);
 
-            Console.WriteLine(classAccount.WithdrawFunds(10));
-            Console.WriteLine(ClassAccount.AccountAllowed(1234, 5));
+            Console.WriteLine(customerAccount.WithdrawFunds(10));
+            Console.WriteLine(CustomerAccount.AccountAllowed(1234, 5));
 
-            ClassAccount classAccount2 = new ClassAccount("Test");
-            Console.WriteLine(classAccount.GetName());
+            CustomerAccount classAccount2 = new CustomerAccount("Test");
+            Console.WriteLine((customerAccount as CustomerAccount).GetName());
             Console.WriteLine(classAccount2.GetName());
+
+            Console.WriteLine("Customer Balance: " + customerAccount.GetBalance());
+            Console.WriteLine("Customer Withdraw 20 status:" + customerAccount.WithdrawFunds(20));
+
+            IAccount babyAccount = new BabyAccount();
+            babyAccount.PayInFunds(20);
+            Console.WriteLine("Baby Balance: " + babyAccount.GetBalance());
+            Console.WriteLine("Baby Withdraw 20 status:" + babyAccount.WithdrawFunds(20));
+
+            Console.WriteLine(customerAccount);
+            Console.WriteLine(babyAccount);
         }
 
         public static void PrintAccount(Account account)

@@ -57,3 +57,28 @@ So... I am reading [this](http://www.csharpcourse.com/) book, and I will put in 
 
 - Struct are passed as values (copy) not like reference with the Objects
 - Constructor chaining is a little bit different compared to how you do it in Java
+
+        public CustomerAccount() : this("")
+        { }
+
+        public CustomerAccount(string name)
+        {
+            this.name = name;
+            this.balance = 0;
+        }
+
+ - **Method Override**: I have to declare the "parent" method as "virtual", and the child as "override". The keyword virtual means “I might want to make another version of this method in a child class”. You don’t have to override the method, but if you don’t have the word present, you definitely can’t. This makes override and virtual a kind of matched pair. You use virtual to mark a method as able to be overridden and override to actually provide a replacement for the method.
+
+
+         //Parent Class
+         public virtual bool WithdrawFunds(decimal amount){...}
+         //Child Class
+         public override bool WithdrawFunds(decimal amount){...}
+
+ - **Replace Method** There is an option to replace a method in the child class. This means that I don't have to make the parent method "virtual" 
+
+          //Child Class
+         public override bool WithdrawFunds(decimal amount){...}
+
+ - C# **string** are immutable like in Java
+ - **Delegates**, page 139, it is clear how it works, but the benefit is not clear to me..
