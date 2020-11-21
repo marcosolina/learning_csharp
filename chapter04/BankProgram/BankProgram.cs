@@ -24,15 +24,23 @@ namespace BankProgram
             Bank[1].Balance = 20000;
             PrintAccount(Bank[1]);
 
-            IAccount account = new CustomerAccount();
-            account.PayInFunds(50);
+            IAccount customerAccount = new CustomerAccount();
+            customerAccount.PayInFunds(50);
 
-            Console.WriteLine(account.WithdrawFunds(10));
+            Console.WriteLine(customerAccount.WithdrawFunds(10));
             Console.WriteLine(CustomerAccount.AccountAllowed(1234, 5));
 
             CustomerAccount classAccount2 = new CustomerAccount("Test");
-            Console.WriteLine((account as CustomerAccount).GetName());
+            Console.WriteLine((customerAccount as CustomerAccount).GetName());
             Console.WriteLine(classAccount2.GetName());
+
+            Console.WriteLine("Customer Balance: " + customerAccount.GetBalance());
+            Console.WriteLine("Customer Withdraw 20 status:" + customerAccount.WithdrawFunds(20));
+
+            IAccount babyAccount = new BabyAccount();
+            babyAccount.PayInFunds(20);
+            Console.WriteLine("Baby Balance: " + babyAccount.GetBalance());
+            Console.WriteLine("Baby Withdraw 20 status:" + babyAccount.WithdrawFunds(20));
         }
 
         public static void PrintAccount(Account account)

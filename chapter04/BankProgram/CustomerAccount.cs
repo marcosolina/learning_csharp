@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BankProgram
 {
-    class CustomerAccount : IAccount
+    public class CustomerAccount : AccountClass
     {
         private decimal balance;
         private string name;
@@ -15,30 +15,15 @@ namespace BankProgram
         public CustomerAccount() : this("")
         { }
 
-        public CustomerAccount(string name)
-        {
-            this.name = name;
-            this.balance = 0;
-        }
+        public CustomerAccount(string name) : this(name, 0)
+        { }
 
-        public bool WithdrawFunds(decimal amount)
-        {
-            if (balance < amount)
-            {
-                return false;
-            }
-            balance -= amount;
-            return true;
-        }
+        public CustomerAccount(string name, decimal inBalance) : base(name, inBalance)
+        { }
 
-        public void PayInFunds(decimal amount)
+        public override string RudeLetterString()
         {
-            balance += amount;
-        }
-
-        public decimal GetBalance()
-        {
-            return balance;
+            return "You are overdrawn";
         }
 
         public static bool AccountAllowed(decimal income, int age)
@@ -46,9 +31,5 @@ namespace BankProgram
             return income >= 10000 && age > 17;
         }
 
-        public string GetName()
-        {
-            return name;
-        }
     }
 }

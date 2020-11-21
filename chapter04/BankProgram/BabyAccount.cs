@@ -4,29 +4,31 @@ using System.Text;
 
 namespace BankProgram
 {
-    class BabyAccount : IAccount
+    /*
+     * This class extends CustomerAccuont and implements IAccount
+     */
+    class BabyAccount : AccountClass
     {
-        private decimal balance = 0;
-        public bool WithdrawFunds(decimal amount)
+
+        public BabyAccount() : this("", 0)
+        { }
+
+        public BabyAccount(string name, decimal inBalance) : base(name, inBalance)
+        { }
+
+        public override bool WithdrawFunds(decimal amount)
         {
             if (amount > 10)
             {
                 return false;
             }
-            if (balance < amount)
-            {
-                return false;
-            }
-            balance = balance - amount;
-            return true;
+
+            return base.WithdrawFunds(amount);
         }
-        public void PayInFunds(decimal amount)
+
+        public override string RudeLetterString()
         {
-            balance = balance + amount;
-        }
-        public decimal GetBalance()
-        {
-            return balance;
+            return "Tell daddy you are overdrawn";
         }
     }
 }
