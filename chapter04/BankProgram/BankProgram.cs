@@ -41,6 +41,9 @@ namespace BankProgram
             babyAccount.PayInFunds(20);
             Console.WriteLine("Baby Balance: " + babyAccount.GetBalance());
             Console.WriteLine("Baby Withdraw 20 status:" + babyAccount.WithdrawFunds(20));
+
+            Console.WriteLine(customerAccount);
+            Console.WriteLine(babyAccount);
         }
 
         public static void PrintAccount(Account account)

@@ -17,6 +17,11 @@ namespace BankProgram
 
         public abstract string RudeLetterString();
 
+        public override string ToString()
+        {
+            return "Name: " + name + " balance: " + balance;
+        }
+
         /*
          * Virtual meands that the method can be overwritten
          */

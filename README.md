@@ -79,3 +79,6 @@ So... I am reading [this](http://www.csharpcourse.com/) book, and I will put in 
 
           //Child Class
          public override bool WithdrawFunds(decimal amount){...}
+
+ - C# **string** are immutable like in Java
+ - **Delegates**, page 139, it is clear how it works, but the benefit is not clear to me..
