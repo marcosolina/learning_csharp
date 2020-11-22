@@ -10,8 +10,15 @@ namespace BankProgram
 
         public CustomerAccount(string newName, decimal initialBalance)
         {
-            name = newName;
-            balance = initialBalance;
+            this.name = newName;
+            this.balance = initialBalance;
+        }
+
+        public CustomerAccount(TextReader textIn)
+        {
+            this.name = textIn.ReadLine();
+            string balanceText = textIn.ReadLine();
+            this.balance = decimal.Parse(balanceText);
         }
 
         public virtual bool WithdrawFunds(decimal amount)
@@ -39,46 +46,25 @@ namespace BankProgram
             return name;
         }
 
-        public bool Save(string filename)
+        public static CustomerAccount Load(TextReader textIn)
         {
             try
             {
-                TextWriter textOut = new StreamWriter(filename);
-                textOut.WriteLine(name);
-                textOut.WriteLine(balance);
-                textOut.Close();
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
-        }
-
-        public static CustomerAccount Load(string filename)
-        {
-            CustomerAccount result = null;
-            TextReader textIn = null;
-            try
-            {
-                textIn = new StreamReader(filename);
-                string nameText = textIn.ReadLine();
+                string name = textIn.ReadLine();
                 string balanceText = textIn.ReadLine();
                 decimal balance = decimal.Parse(balanceText);
-                result = new CustomerAccount(nameText, balance);
+                return new CustomerAccount(name, balance);
             }
             catch
             {
                 return null;
             }
-            finally
-            {
-                if (textIn != null)
-                {
-                    textIn.Close();
-                }
-            }
-            return result;
+        }
+
+        public virtual void Save(TextWriter textOut)
+        {
+            textOut.WriteLine(name);
+            textOut.WriteLine(balance);
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.IO;
 
 namespace BankProgram
 {
@@ -10,5 +8,7 @@ namespace BankProgram
         bool WithdrawFunds(decimal amount); 
         decimal GetBalance(); 
         string GetName();
+
+        void Save(TextWriter textOut);
     }
 }
