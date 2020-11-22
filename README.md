@@ -1,7 +1,7 @@
 # Learning C\#
 
-I am a Java certified developer, hence I mainly worked with Java. As a developer I like to continue to learn new things, it is time for me to learn the C# (C Sharp, not C Hash) language.
-So... I am reading [this](http://www.csharpcourse.com/) book, and I will put in this repo all the exercises that I will do.
+I am a Java certified developer, so my primary language is Java. As a developer I like to continue to learn new things, it is time for me to learn the C# (C Sharp, not C Hash) language.
+So... I am reading [this](http://www.csharpcourse.com/) book, and I will put in this repo all the exercises / Notes that I consider important to me.
 
 ## Book exercises
 
@@ -81,4 +81,11 @@ So... I am reading [this](http://www.csharpcourse.com/) book, and I will put in 
          public override bool WithdrawFunds(decimal amount){...}
 
  - C# **string** are immutable like in Java
- - **Delegates**, page 139, it is clear how it works, but the benefit is not clear to me..
+ - **Delegates**, page 139, it is clear how it works, but the benefit is not clear to me...
+
+### Chapter 05 Notes
+
+- ArrayList works with **references** of type **object** (not typesafe)
+- List<?> uses generics. Don't get confused from the Java, List is not an interface, it is the implementation
+- Dictionary<?, ?>, I can use this instead of a Java HashMap<?, ?>. Carefull, when you try to retrieve the value, it will throw an exception if not available. It will not return null like in Java. You have first to check if it exists with the ".ContainsKey".
+- 
