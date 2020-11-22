@@ -3,6 +3,9 @@
 I am a Java certified developer, so my primary language is Java. As a developer I like to continue to learn new things, it is time for me to learn the C# (C Sharp, not C Hash) language.
 So... I am reading [this](http://www.csharpcourse.com/) book, and I will put in this repo all the exercises / Notes that I consider important to me.
 
+## Updates
+- 2020-11-22 - I have finished the Book. The book gave me an initial high level view of the differences between Java and C#. It is ok as a starting point. I will propably look for a book which deeper into the C# world, like the book for the Java OCP exam.
+
 ## Book exercises
 
 ### Chapter 01
@@ -88,4 +91,14 @@ So... I am reading [this](http://www.csharpcourse.com/) book, and I will put in 
 - ArrayList works with **references** of type **object** (not typesafe)
 - List<?> uses generics. Don't get confused from the Java, List is not an interface, it is the implementation
 - Dictionary<?, ?>, I can use this instead of a Java HashMap<?, ?>. Carefull, when you try to retrieve the value, it will throw an exception if not available. It will not return null like in Java. You have first to check if it exists with the ".ContainsKey".
-- 
+- Threads: the idea and concepts are the same as Java, but the way I start a new thread is a little bit different. In C# I have to tell to the Thread class which is the "starting method", I do this using "delegates" (now I understand when you can use a delegate, check the last note in chapert 04)
+- Synchronise the code: In Java we have the **synchronise** keyword, in C# you have to use a specific class
+
+        static object sync = new object();
+        ...
+        Monitor.Enter(sync); // Entering a sync block code
+        ...
+        Monitor.Exit(sync); // Leaving the sync block code
+
+- **Exception**: The base class is System.Exception. No mention to checked and uncheked exceptions like in Java
+

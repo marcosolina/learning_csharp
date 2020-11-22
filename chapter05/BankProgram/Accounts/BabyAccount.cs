@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 
-namespace BankProgram
+namespace BankProgram.Accounts
 {
+
+    /// <summary>
+    /// Account for under age
+    /// </summary>
     class BabyAccount : CustomerAccount
     {
         private string parentName;
@@ -38,20 +39,10 @@ namespace BankProgram
             textOut.WriteLine(parentName);
         }
 
-        public static BabyAccount Load(TextReader textIn)
+        public override string ToString()
         {
-            try
-            {
-                string name = textIn.ReadLine();
-                string balanceText = textIn.ReadLine();
-                decimal balance = decimal.Parse(balanceText);
-                string parent = textIn.ReadLine();
-                return new BabyAccount(name, balance, parent);
-            }
-            catch
-            {
-                return null;
-            }
+            return base.ToString() + " Parent: " + this.parentName;
         }
+
     }
 }
