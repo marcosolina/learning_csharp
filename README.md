@@ -4,7 +4,7 @@ I am a Java certified developer, so my primary language is Java. As a developer 
 So... I am reading [this](http://www.csharpcourse.com/) book, and I will put in this repo all the exercises / Notes that I consider important to me.
 
 ## Updates
-- 2020-11-22 - I have finished the Book. The book gave me an initial high level view of the differences between Java and C#. It is ok as a starting point. I will propably look for a book which deeper into the C# world, like the book for the Java OCP exam.
+- 2020-11-22 - I have finished the Book. The book gave me an initial high level view of the differences between Java and C#. It is ok as a starting point. I will propably look for a book which goes deeper into the C# world, like the book for the Java OCP exam.
 
 ## Book exercises
 
